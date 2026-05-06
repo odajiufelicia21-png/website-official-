@@ -11,7 +11,22 @@
         .gradient-bg { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%); }
         .card-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
         .active-module { border-left: 4px solid #6366f1; background: #f5f3ff; }
-        .hide { display: none; }
+        .animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Fallback styling for images if needed */
+        .img-container {
+            background-color: #f1f5f9;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -21,42 +36,49 @@
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <div class="bg-indigo-500 p-1.5 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor font-bold">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                     </svg>
                 </div>
                 <span class="font-extrabold text-lg tracking-tighter uppercase">MUZICA <span class="text-indigo-400">0-PRO</span></span>
             </div>
-            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
-                <a href="#curs" class="hover:text-indigo-400 transition">Curs</a>
-                <a href="#plan" class="hover:text-indigo-400 transition">Plan 30 Zile</a>
-                <a href="#preturi" class="hover:text-indigo-400 transition">Prețuri</a>
+            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-indigo-100">
+                <a href="#curs" class="hover:text-white transition">Curs</a>
+                <a href="#plan" class="hover:text-white transition">Plan 30 Zile</a>
+                <a href="#preturi" class="hover:text-white transition">Prețuri</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="gradient-bg text-white py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="inline-block bg-indigo-500/30 text-indigo-200 text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-widest">Lansat recent</span>
-            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Muzica De La Zero La Pro</h1>
-            <p class="text-lg md:text-xl text-indigo-100 mb-10 opacity-90 leading-relaxed">
-                Ghidul complet de la teorie la lansarea primei tale piese. Învață industria muzicală modernă fără experiență anterioară.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#curs" class="bg-white text-indigo-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-indigo-50 transition shadow-lg">Începe să înveți</a>
-                <a href="#preturi" class="bg-indigo-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-indigo-700 transition shadow-lg">Vezi ofertele</a>
+    <!-- Hero Section cu Imagine -->
+    <header class="gradient-bg text-white py-16 md:py-24 px-4 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-left z-10">
+                <span class="inline-block bg-indigo-500/30 text-indigo-200 text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-widest border border-indigo-400/20">Ediția 2024</span>
+                <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">Muzica De La Zero La Pro</h1>
+                <p class="text-lg md:text-xl text-indigo-100 mb-10 opacity-90 leading-relaxed max-w-xl">
+                    Ghidul complet de la teorie la lansarea primei tale piese. Învață industria muzicală modernă fără experiență anterioară.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#curs" class="bg-white text-indigo-900 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-50 transition shadow-lg text-center">Începe Cursul</a>
+                    <a href="#preturi" class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-indigo-700 transition shadow-lg border border-indigo-400/30 text-center">Vezi Ofertele</a>
+                </div>
+            </div>
+            <div class="relative hidden lg:block">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <img src="https://share.google/RJhwqj4VcI4QF6ygr" alt="Studio Muzical" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800'">
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Statistici -->
-    <section class="max-w-5xl mx-auto -mt-10 px-4 mb-16">
-        <div class="bg-white rounded-2xl shadow-xl grid grid-cols-2 md:grid-cols-4 gap-4 p-8 text-center border border-slate-100">
-            <div><p class="text-3xl font-black text-indigo-600">10</p><p class="text-xs text-slate-500 font-bold uppercase">Module</p></div>
-            <div><p class="text-3xl font-black text-indigo-600">50+</p><p class="text-xs text-slate-500 font-bold uppercase">Lecții</p></div>
-            <div><p class="text-3xl font-black text-indigo-600">30</p><p class="text-xs text-slate-500 font-bold uppercase">Zile Plan</p></div>
-            <div><p class="text-3xl font-black text-indigo-600">PDF</p><p class="text-xs text-slate-500 font-bold uppercase">Ebook inclus</p></div>
+    <section class="max-w-6xl mx-auto -mt-10 px-4 mb-16 relative z-20">
+        <div class="bg-white rounded-3xl shadow-2xl grid grid-cols-2 md:grid-cols-4 gap-4 p-8 text-center border border-slate-100">
+            <div><p class="text-3xl font-black text-indigo-600">10</p><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Module</p></div>
+            <div><p class="text-3xl font-black text-indigo-600">50+</p><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Lecții</p></div>
+            <div><p class="text-3xl font-black text-indigo-600">30</p><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Zile Plan</p></div>
+            <div><p class="text-3xl font-black text-indigo-600">PDF</p><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Ebook</p></div>
         </div>
     </section>
 
@@ -66,24 +88,36 @@
             
             <!-- Meniu Module -->
             <div class="lg:w-1/3 space-y-2">
-                <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4 ml-2">Structura Cursului</h3>
-                <div id="module-menu">
-                    <!-- Modulele vor fi generate de JS -->
+                <h3 class="text-sm font-black text-slate-400 uppercase tracking-widest mb-4 ml-2">Explorator Curs</h3>
+                <div id="module-menu" class="space-y-1">
+                    <!-- Modulele sunt generate de JS -->
+                </div>
+                
+                <!-- Imagine laterală mică -->
+                <div class="mt-8 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+                    <img src="https://share.google/SIbwIDYtedS55AAxON" alt="Resurse Muzicale" class="w-full h-40 object-cover" onerror="this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=400'">
+                    <div class="p-4 bg-white">
+                        <p class="text-xs font-bold text-slate-800">Bonus: Pack de Sunete Inclus</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Conținut Modul -->
             <div class="lg:w-2/3">
-                <div class="bg-white rounded-3xl p-8 card-shadow min-h-[500px] border border-slate-100">
-                    <div id="content-display">
-                        <div class="flex items-center space-x-2 text-indigo-500 mb-6">
-                            <span class="text-xs font-bold uppercase tracking-widest">Selectează un modul pentru a începe</span>
+                <div class="bg-white rounded-3xl p-6 md:p-10 card-shadow min-h-[600px] border border-slate-100 flex flex-col">
+                    <div id="content-display" class="flex-1">
+                        <div class="flex items-center space-x-2 text-indigo-500 mb-6 uppercase tracking-widest text-[10px] font-black">
+                            <span>Să începem călătoria ta</span>
                         </div>
-                        <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Ești gata să devii producător?</h2>
-                        <p class="text-slate-600 mb-6 leading-relaxed">Apasă pe modulele din stânga pentru a explora lecțiile. Fiecare modul conține teorie explicată simplu, exerciții practice și resurse descărcabile.</p>
-                        <div class="p-6 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 text-center">
-                            <p class="text-slate-400 italic">Selectează primul modul: "Bazele Muzicii"</p>
+                        <h2 class="text-4xl font-black text-slate-900 mb-6">Pregătește-te pentru primul tău hit.</h2>
+                        <div class="rounded-2xl overflow-hidden mb-8 shadow-inner bg-slate-100 h-64 relative">
+                             <img src="https://share.google/QQhKmyE7dSHNU99TZ" alt="Producție" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1514525253361-bee8a19740c1?auto=format&fit=crop&q=80&w=800'">
+                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6 text-white">
+                                <p class="font-bold">Învață să controlezi sunetul ca un profesionist.</p>
+                             </div>
                         </div>
+                        <p class="text-slate-600 mb-8 text-lg leading-relaxed">Apasă pe modulele din stânga pentru a debloca lecțiile. Fiecare pas este conceput să te ducă mai aproape de prima ta lansare pe platformele de streaming.</p>
+                        <button onclick="showModule(0)" class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition">Începe cu Modulul 1</button>
                     </div>
                 </div>
             </div>
@@ -91,87 +125,106 @@
     </section>
 
     <!-- Plan de 30 de zile -->
-    <section id="plan" class="bg-slate-900 text-white py-20 px-4 mt-20">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-black mb-4">Transformarea ta în 30 de zile</h2>
-            <p class="text-slate-400">Nu ai nevoie de ani de zile, ci de un sistem bine pus la punct.</p>
+    <section id="plan" class="bg-indigo-950 text-white py-24 px-4 mt-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+             <img src="https://share.google/bdwJXKszpcVDeuoeD" alt="Abstract" class="w-96 h-96 object-cover rounded-full" onerror="this.style.display='none'">
         </div>
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
-                <span class="text-indigo-400 font-bold">Săptămâna 1</span>
-                <h4 class="text-xl font-bold mb-2">Fundația Muzicală</h4>
-                <p class="text-slate-400 text-sm">Înveți notele, gamele și cum să asculți muzica la fel ca un profesionist. Îți antrenezi urechea.</p>
+        
+        <div class="max-w-4xl mx-auto text-center mb-20 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-black mb-6">Transformarea în 30 de zile</h2>
+            <p class="text-indigo-200 text-lg">Nu ai nevoie de ani de studiu, ci de un plan de acțiune clar.</p>
+        </div>
+        
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all cursor-default">
+                <span class="text-indigo-400 font-black text-xs uppercase tracking-tighter mb-4 block">Săptămâna 1</span>
+                <h4 class="text-xl font-bold mb-3 text-white">Fundația</h4>
+                <p class="text-indigo-100/60 text-sm leading-relaxed">Înțelegi teoria, notele și ritmul. Îți antrenezi urechea muzicală.</p>
             </div>
-            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
-                <span class="text-indigo-400 font-bold">Săptămâna 2</span>
-                <h4 class="text-xl font-bold mb-2">Laboratorul de Producție</h4>
-                <p class="text-slate-400 text-sm">Instalăm software-ul (DAW) și facem primele ritmuri. Înțelegi cum funcționează instrumentele virtuale.</p>
+            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all cursor-default">
+                <span class="text-indigo-400 font-black text-xs uppercase tracking-tighter mb-4 block">Săptămâna 2</span>
+                <h4 class="text-xl font-bold mb-3 text-white">Software</h4>
+                <p class="text-indigo-100/60 text-sm leading-relaxed">Instalezi DAW-ul și creezi primele tale beaturi digitale.</p>
             </div>
-            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
-                <span class="text-indigo-400 font-bold">Săptămâna 3</span>
-                <h4 class="text-xl font-bold mb-2">Compoziția și Structura</h4>
-                <p class="text-slate-400 text-sm">Scriem versuri, creăm refrene memorabile și asamblăm toate elementele într-o piesă completă.</p>
+            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all cursor-default">
+                <span class="text-indigo-400 font-black text-xs uppercase tracking-tighter mb-4 block">Săptămâna 3</span>
+                <h4 class="text-xl font-bold mb-3 text-white">Creația</h4>
+                <p class="text-indigo-100/60 text-sm leading-relaxed">Compui melodia, versurile și asamblezi structura piesei.</p>
             </div>
-            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
-                <span class="text-indigo-400 font-bold">Săptămâna 4</span>
-                <h4 class="text-xl font-bold mb-2">Lansarea Globală</h4>
-                <p class="text-slate-400 text-sm">Mixăm piesa, facem branding-ul de artist și o urcăm pe Spotify/Apple Music. Ești oficial artist!</p>
+            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-all cursor-default">
+                <span class="text-indigo-400 font-black text-xs uppercase tracking-tighter mb-4 block">Săptămâna 4</span>
+                <h4 class="text-xl font-bold mb-3 text-white">Lansarea</h4>
+                <p class="text-indigo-100/60 text-sm leading-relaxed">Mixezi piesa și o publici pe Spotify/Apple Music ca un PRO.</p>
             </div>
         </div>
     </section>
 
     <!-- Prețuri -->
-    <section id="preturi" class="py-20 px-4 max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-black text-center mb-16">Alege-ți calea</h2>
+    <section id="preturi" class="py-24 px-4 max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-black text-center mb-4 text-slate-900">Pachete Disponibile</h2>
+        <p class="text-center text-slate-500 mb-16">Investește în pasiunea ta. Alege nivelul care ți se potrivește.</p>
+        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Basic -->
-            <div class="bg-white p-8 rounded-3xl card-shadow border border-slate-100 flex flex-col">
-                <h3 class="text-xl font-bold mb-2">Basic</h3>
-                <p class="text-slate-500 text-sm mb-6">Ideal pentru autodidacți</p>
-                <div class="text-4xl font-black mb-6">19€</div>
-                <ul class="space-y-4 mb-10 flex-1">
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Cele 10 Module Text</li>
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Glosar de termeni</li>
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Planul de 30 de zile</li>
+            <div class="bg-white p-8 rounded-3xl card-shadow border border-slate-100 flex flex-col group hover:border-indigo-200 transition-all">
+                <h3 class="text-xl font-bold mb-2">Pachetul Starter</h3>
+                <p class="text-slate-500 text-xs mb-6 uppercase tracking-widest font-bold">Ebook & Curs Text</p>
+                <div class="text-5xl font-black mb-8 text-slate-900">19€</div>
+                <ul class="space-y-4 mb-12 flex-1">
+                    <li class="flex items-start text-sm text-slate-600"><svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Toate cele 10 Module Curs</li>
+                    <li class="flex items-start text-sm text-slate-600"><svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Glosar complet de termeni</li>
+                    <li class="flex items-start text-sm text-slate-600"><svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Ghidul de lansare PDF</li>
                 </ul>
-                <button class="w-full py-4 bg-slate-100 text-slate-900 font-bold rounded-2xl hover:bg-slate-200 transition">Cumpără Ebook</button>
+                <button class="w-full py-4 bg-slate-100 text-slate-900 font-bold rounded-2xl hover:bg-slate-200 transition">Cumpără Acum</button>
             </div>
+            
             <!-- Pro -->
-            <div class="bg-indigo-600 text-white p-8 rounded-3xl card-shadow ring-4 ring-indigo-300 transform scale-105 flex flex-col">
-                <div class="bg-indigo-400 text-xs font-bold px-2 py-1 rounded inline-block w-max mb-4 uppercase">Cel mai popular</div>
-                <h3 class="text-xl font-bold mb-2 text-white">Pro</h3>
-                <p class="text-indigo-200 text-sm mb-6">Pentru viitorii producători</p>
-                <div class="text-4xl font-black mb-6">49€</div>
-                <ul class="space-y-4 mb-10 flex-1">
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-indigo-300 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Tot din pachetul Basic</li>
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-indigo-300 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Tutoriale Video Step-by-Step</li>
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-indigo-300 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Pack de 500+ Sample-uri</li>
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-indigo-300 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Checklist Masterizare</li>
+            <div class="bg-indigo-600 text-white p-8 rounded-3xl card-shadow ring-8 ring-indigo-500/10 transform md:-translate-y-4 flex flex-col relative overflow-hidden">
+                <div class="absolute -right-8 -top-8 w-24 h-24 bg-white/10 rounded-full"></div>
+                <div class="bg-indigo-400 text-[10px] font-black px-2 py-1 rounded inline-block w-max mb-4 uppercase tracking-widest">Recomandat</div>
+                <h3 class="text-xl font-bold mb-2">Pachetul Pro</h3>
+                <p class="text-indigo-200 text-xs mb-6 uppercase tracking-widest font-bold">Curs Video & Resurse</p>
+                <div class="text-5xl font-black mb-8 text-white">49€</div>
+                <ul class="space-y-4 mb-12 flex-1">
+                    <li class="flex items-start text-sm text-indigo-50"><svg class="h-5 w-5 text-indigo-300 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Tot din Starter</li>
+                    <li class="flex items-start text-sm text-indigo-50"><svg class="h-5 w-5 text-indigo-300 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Tutoriale Video Practice</li>
+                    <li class="flex items-start text-sm text-indigo-50"><svg class="h-5 w-5 text-indigo-300 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Pack 500+ Sample-uri & Loops</li>
+                    <li class="flex items-start text-sm text-indigo-50"><svg class="h-5 w-5 text-indigo-300 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Acces Grup Exclusiv Discord</li>
                 </ul>
-                <button class="w-full py-4 bg-white text-indigo-900 font-bold rounded-2xl hover:bg-indigo-50 transition shadow-xl">Vreau Pachetul Pro</button>
+                <button class="w-full py-4 bg-white text-indigo-900 font-extrabold rounded-2xl hover:bg-indigo-50 transition shadow-xl">Obține Pachetul Pro</button>
             </div>
-            <!-- Premium -->
-            <div class="bg-white p-8 rounded-3xl card-shadow border border-slate-100 flex flex-col">
-                <h3 class="text-xl font-bold mb-2 text-slate-900">Elite</h3>
-                <p class="text-slate-500 text-sm mb-6">Mentorat 1 la 1</p>
-                <div class="text-4xl font-black mb-6">99€</div>
-                <ul class="space-y-4 mb-10 flex-1 text-slate-700">
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Tot din pachetul Pro</li>
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Feedback audio pe piesele tale</li>
-                    <li class="flex items-center text-sm"><svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Strategie de Marketing Personalizată</li>
+            
+            <!-- Elite -->
+            <div class="bg-white p-8 rounded-3xl card-shadow border border-slate-100 flex flex-col group hover:border-slate-300 transition-all">
+                <h3 class="text-xl font-bold mb-2">Pachetul Elite</h3>
+                <p class="text-slate-500 text-xs mb-6 uppercase tracking-widest font-bold">Coaching 1-la-1</p>
+                <div class="text-5xl font-black mb-8 text-slate-900">99€</div>
+                <ul class="space-y-4 mb-12 flex-1">
+                    <li class="flex items-start text-sm text-slate-600"><svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Tot din Pachetul Pro</li>
+                    <li class="flex items-start text-sm text-slate-600"><svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Feedback Audio pe 3 Piese</li>
+                    <li class="flex items-start text-sm text-slate-600"><svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Strategie Marketing Artist</li>
                 </ul>
-                <button class="w-full py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition">Aplică pentru Elite</button>
+                <button class="w-full py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition">Aplică Acum</button>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-100 py-12 px-4 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm font-bold uppercase tracking-widest">
-            <p>&copy; 2024 Muzica De La Zero La Pro</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-indigo-600">Termeni</a>
-                <a href="#" class="hover:text-indigo-600">Contact</a>
-                <a href="#" class="hover:text-indigo-600">Insta</a>
+    <!-- Footer -->
+    <footer class="bg-slate-50 py-16 px-4 border-t border-slate-200 text-center">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-center space-x-2 mb-8">
+                <div class="bg-indigo-600 p-1 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                    </svg>
+                </div>
+                <span class="font-extrabold text-slate-900 tracking-tighter uppercase">MUZICA <span class="text-indigo-600">0-PRO</span></span>
+            </div>
+            <p class="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] mb-4">&copy; 2024 Muzica De La Zero La Pro. Toate drepturile rezervate.</p>
+            <div class="flex justify-center space-x-6 text-slate-400 font-bold uppercase text-[10px]">
+                <a href="#" class="hover:text-indigo-600 transition">Instrucțiuni</a>
+                <a href="#" class="hover:text-indigo-600 transition">Contact Suport</a>
+                <a href="#" class="hover:text-indigo-600 transition">Politica Zero</a>
             </div>
         </div>
     </footer>
@@ -181,62 +234,72 @@
             {
                 id: 1,
                 title: "Modul 1: Bazele Muzicii",
-                desc: "Ce este muzica (dincolo de „sunete frumoase”). Înțelegem frecvența și vibrația.",
-                lessons: ["Cum percepe creierul muzica", "Sunet vs Zgomot", "Exercițiu de ascultare activă"]
+                desc: "Ce este muzica (dincolo de „sunete frumoase”). Înțelegem frecvența, vibrația și modul în care creierul procesează arta sonoră.",
+                lessons: ["Cum percepe creierul muzica", "Diferența dintre Sunet și Zgomot", "Exercițiu de ascultare activă în natură"],
+                image: "https://share.google/RJhwqj4VcI4QF6ygr"
             },
             {
                 id: 2,
                 title: "Modul 2: Teoria Muzicală",
-                desc: "Alfabetul muzicii. Game major/minor, acorduri și armonie.",
-                lessons: ["Notele muzicale", "Construirea acordurilor", "Cum creezi o progresie armonică"]
+                desc: "Alfabetul muzicii. Game major/minor, acorduri și armonie. Construim primele tale structuri muzicale solide.",
+                lessons: ["Notele muzicale și Alfabetul", "Construirea acordurilor simple", "Emoția în armonie: Major vs Minor"],
+                image: "https://share.google/QQhKmyE7dSHNU99TZ"
             },
             {
                 id: 3,
                 title: "Modul 3: Ritm și Structură",
-                desc: "Ritmul este motorul. Învățăm despre măsuri, BPM și arhitectura unei piese.",
-                lessons: ["Măsuri (4/4, 3/4 etc.)", "BPM și Puls", "Structura: Vers, Refren, Bridge"]
+                desc: "Ritmul este motorul oricărei piese. Învățăm despre măsuri, BPM și arhitectura standard a unui hit modern.",
+                lessons: ["Măsuri standard (4/4, 3/4)", "BPM, Tempo și Puls", "Structura: Vers, Refren și Bridge"],
+                image: "https://share.google/SIbwIDYtedS5AAxON"
             },
             {
                 id: 4,
                 title: "Modul 4: Instrumente",
-                desc: "Clasic vs Digital. De la chitară la sintetizatoare și VST-uri.",
-                lessons: ["Instrumente reale vs Software", "Alegerea primului instrument", "Introducere în MIDI"]
+                desc: "Clasic vs Digital. De la chitară și pian la sintetizatoare moderne și instrumente virtuale (VST).",
+                lessons: ["Analiza instrumentelor acustice", "Introducere în VST-uri", "Cum alegi sunetul potrivit"],
+                image: "https://share.google/bdwJXKszpcVDeuoeD"
             },
             {
                 id: 5,
                 title: "Modul 5: Producție (DAW)",
-                desc: "Alegem stația de lucru (FL Studio, Ableton, Logic). Primul proiect.",
-                lessons: ["Configurarea DAW-ului", "Timeline-ul proiectului", "Importul sunetelor"]
+                desc: "Alegem stația de lucru (FL Studio, Ableton, Logic). Primul tău proiect deschis de la zero.",
+                lessons: ["Interfața programului de producție", "Timeline-ul și Aranjamentul", "Importul și editarea sample-urilor"],
+                image: "https://share.google/RJhwqj4VcI4QF6ygr"
             },
             {
                 id: 6,
                 title: "Modul 6: Compoziție",
-                desc: "Cum creezi o melodie memorabilă. Hook-uri și emoție.",
-                lessons: ["Tehnici de scriere melodii", "Transmiterea emoțiilor", "Toplining"]
+                desc: "Cum creezi o melodie memorabilă pe care lumea să o fredoneze. Tehnici de scriere a hook-urilor.",
+                lessons: ["Tehnici de scriere melodii", "Toplining: Vocea peste instrumente", "Dezvoltarea unei idei muzicale"],
+                image: "https://share.google/QQhKmyE7dSHNU99TZ"
             },
             {
                 id: 7,
                 title: "Modul 7: Genuri Muzicale",
-                desc: "De la Pop la EDM. Ce definește fiecare stil.",
-                lessons: ["Caracteristici Pop/Rap", "Design sonor pentru EDM", "Cum combini stilurile"]
+                desc: "De la Pop la EDM. Ce definește fiecare stil și cum s-au născut acestea din istoria muzicii.",
+                lessons: ["Analiza stilurilor Pop și Rap", "Elementele esențiale EDM", "Cum creezi un hibrid de stiluri"],
+                image: "https://share.google/SIbwIDYtedS5AAxON"
             },
             {
                 id: 8,
                 title: "Modul 8: Industria Muzicală",
-                desc: "Spotify, drepturi de autor și cum faci bani din muzică.",
-                lessons: ["Distribuția digitală", "Monetizare", "Drepturi de autor (ORDA/UCMR)"]
+                desc: "Spotify, YouTube și platformele de streaming. Înțelegi drepturile de autor și monetizarea.",
+                lessons: ["Distribuția digitală explicată", "Cum funcționează drepturile de autor", "Primii pași în monetizarea artei tale"],
+                image: "https://share.google/bdwJXKszpcVDeuoeD"
             },
             {
                 id: 9,
                 title: "Modul 9: Brand Personal",
-                desc: "Nume de scenă, imagine și social media pentru artiști.",
-                lessons: ["Crearea identității vizuale", "TikTok/Instagram pentru muzică", "Strategia de lansare"]
+                desc: "Nume de scenă, imagine vizuală și prezența pe Social Media. Devii vizibil pentru public.",
+                lessons: ["Alegerea numelui de scenă", "Identitate vizuală și Logo", "Strategie TikTok și Instagram"],
+                image: "https://share.google/RJhwqj4VcI4QF6ygr"
             },
             {
                 id: 10,
                 title: "Modul 10: Lansarea!",
-                desc: "Pașii finali. Mix, master și upload pe platforme.",
-                lessons: ["Finalizarea mixajului", "Masterizare simplă", "Prima ta lansare oficială"]
+                desc: "Pașii finali. Mixaj, masterizare simplificată și upload-ul oficial pe platforme.",
+                lessons: ["Mixaj pentru începători", "Masterizare: Volumul competitiv", "Strategia de lansare a primei piese"],
+                image: "https://share.google/QQhKmyE7dSHNU99TZ"
             }
         ];
 
@@ -245,10 +308,10 @@
 
         function renderMenu() {
             menuContainer.innerHTML = modules.map((mod, index) => `
-                <div onclick="showModule(${index})" class="p-4 rounded-2xl cursor-pointer transition-all hover:bg-slate-100 border border-transparent group" id="mod-${index}">
+                <div onclick="showModule(${index})" class="p-4 rounded-2xl cursor-pointer transition-all hover:bg-white hover:shadow-md border-2 border-transparent group" id="mod-${index}">
                     <div class="flex items-center space-x-3">
-                        <span class="text-xs font-black text-indigo-400 group-hover:text-indigo-600">${mod.id < 10 ? '0' + mod.id : mod.id}</span>
-                        <h4 class="font-bold text-slate-700">${mod.title}</h4>
+                        <span class="text-[10px] font-black text-indigo-400 group-hover:text-indigo-600">${mod.id < 10 ? '0' + mod.id : mod.id}</span>
+                        <h4 class="font-bold text-slate-600 group-hover:text-slate-900 transition-colors">${mod.title}</h4>
                     </div>
                 </div>
             `).join('');
@@ -256,44 +319,64 @@
 
         window.showModule = function(index) {
             // Remove active classes
-            document.querySelectorAll('[id^="mod-"]').forEach(el => el.classList.remove('active-module'));
+            document.querySelectorAll('[id^="mod-"]').forEach(el => {
+                el.classList.remove('active-module');
+                el.classList.remove('bg-white');
+                el.classList.remove('shadow-md');
+                el.classList.add('border-transparent');
+            });
             
             // Add active class
-            document.getElementById(`mod-${index}`).classList.add('active-module');
+            const activeEl = document.getElementById(`mod-${index}`);
+            activeEl.classList.add('active-module');
+            activeEl.classList.add('bg-white');
+            activeEl.classList.add('shadow-md');
+            activeEl.classList.remove('border-transparent');
 
             const mod = modules[index];
             contentDisplay.innerHTML = `
                 <div class="animate-fadeIn">
-                    <div class="flex items-center space-x-2 text-indigo-500 mb-6">
-                        <span class="text-xs font-black uppercase tracking-widest">Modulul ${mod.id} / 10</span>
+                    <div class="flex items-center space-x-2 text-indigo-500 mb-6 uppercase tracking-[0.2em] text-[10px] font-black">
+                        <span>Capitolul ${mod.id} / 10</span>
                     </div>
-                    <h2 class="text-3xl font-black text-slate-900 mb-4">${mod.title}</h2>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">${mod.desc}</p>
+                    <h2 class="text-4xl font-black text-slate-900 mb-6">${mod.title}</h2>
                     
-                    <h4 class="font-bold text-slate-800 mb-4 flex items-center">
-                        <svg class="h-5 w-5 mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                        Lecții în acest modul:
-                    </h4>
-                    <div class="space-y-3 mb-10">
+                    <div class="rounded-3xl overflow-hidden mb-8 shadow-lg bg-slate-100 h-72 relative">
+                         <img src="${mod.image}" alt="${mod.title}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&q=80&w=800'">
+                    </div>
+
+                    <p class="text-xl text-slate-600 mb-10 leading-relaxed font-medium">${mod.desc}</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mb-10">
+                        <h4 class="font-black text-slate-900 mb-2 uppercase text-xs tracking-widest">Planul de studiu:</h4>
                         ${mod.lessons.map(lesson => `
-                            <div class="flex items-center space-x-3 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                                <svg class="h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
-                                <span class="font-medium text-slate-700">${lesson}</span>
+                            <div class="flex items-center space-x-3 p-5 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                                <div class="bg-green-100 p-1.5 rounded-full flex-shrink-0">
+                                    <svg class="h-4 w-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                                </div>
+                                <span class="font-bold text-slate-800">${lesson}</span>
                             </div>
                         `).join('')}
                     </div>
 
-                    <div class="bg-indigo-50 p-6 rounded-3xl border border-indigo-100">
-                        <p class="text-indigo-900 font-bold mb-2">Exercițiu practic inclus:</p>
-                        <p class="text-indigo-700/70 text-sm mb-4">Pune în aplicare noțiunile învățate în acest modul și trimite-ne progresul pe grupul de curs.</p>
-                        <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-md">Finalizează Modulul</button>
+                    <div class="bg-indigo-900 text-white p-8 rounded-[2.5rem] shadow-xl border border-white/10 flex flex-col md:flex-row items-center gap-6">
+                        <div class="flex-1">
+                            <p class="text-indigo-400 font-black text-[10px] uppercase tracking-widest mb-2">Pas practic</p>
+                            <p class="text-white font-bold text-lg mb-2">Exercițiul Modulului ${mod.id}</p>
+                            <p class="text-indigo-100/60 text-sm">Aplică imediat teoria învățată pentru a vedea rezultate reale astăzi.</p>
+                        </div>
+                        <button class="bg-indigo-500 hover:bg-indigo-400 text-white px-8 py-4 rounded-2xl font-black text-sm transition-all shadow-lg whitespace-nowrap">Marchează Completat</button>
                     </div>
                 </div>
             `;
+            
+            // Scroll content into view for mobile
+            if (window.innerWidth < 1024) {
+                contentDisplay.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
+        // Initialize with first module
         renderMenu();
     </script>
 </body>
